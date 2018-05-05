@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package api;
+
+message PingMessage {
+  string greeting = 1;
+}
+
+message AuthorizeRequest {
+  string resource = 1;
+  string action = 2;
+  map<string,string> context = 3;
+}
+
+message AuthorizeResponse {
+  bool permitted = 1;
+}
+
+service Judge {
+  rpc SayHello(PingMessage) returns (PingMessage) {}
+
+  rpc Authorize(AuthorizeRequest) returns (AuthorizeResponse) {}
+}
