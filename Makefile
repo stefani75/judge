@@ -2,7 +2,7 @@ GO = go
 GOFMT = gofmt
 PROTOC = protoc
 
-.TARGET: all
+.DEFAULT: all
 
 .PHONY: all
 all: go.sum api/judge/v1alpha1/*.pb.go test bin/judgeserver bin/judgectl priv/server.crt
